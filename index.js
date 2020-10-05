@@ -29,6 +29,13 @@ app.get('/user', (req, res) => {
   })
 })
 
+app.get('/allUser', (req, res) => {
+  collection.find({})
+  .toArray((err, documents) => {
+    res.send(documents);
+  })
+})
+
 });
 
 
