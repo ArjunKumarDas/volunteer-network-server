@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://vlunteer123:arjun7686@cluster0.on0y8.mongodb.net/vlunteerNetwork?retryWrites=true&w=majority";
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.on0y8.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   const collection = client.db("vlunteerNetwork").collection("userInfo");
